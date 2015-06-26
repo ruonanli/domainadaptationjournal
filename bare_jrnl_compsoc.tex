@@ -1,0 +1,950 @@
+
+%% bare_jrnl_compsoc.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE Computer
+%% Society journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+% The Computer Society usually requires 10pt for submissions.
+%
+\documentclass[10pt,journal,cspaper,compsoc]{IEEEtran}
+%\documentclass[12pt,journal,draftcls,letterpaper,onecolumn]{IEEEtran}
+
+
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[12pt,journal,compsoc]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  % \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  % \usepackage{cite}
+\fi
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+%
+% Note that some packages require special options to format as the Computer
+% Society requires. In particular, Computer Society  papers do not use
+% compressed citation ranges as is done in typical IEEE papers
+% (e.g., [1]-[4]). Instead, they list every citation separately in order
+% (e.g., [1], [2], [3], [4]). To get the latter we need to load the cite
+% package with the nocompress option which is supported by cite.sty v4.0
+% and later. Note also the use of a CLASSOPTION conditional provided by
+% IEEEtran.cls V1.7 and later.
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%\usepackage[tight,normalsize,sf,SF]{subfigure}
+%\else
+%\usepackage[tight,footnotesize]{subfigure}
+%\fi
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. Computer Society papers
+% use a larger font and \sffamily font for their captions, hence the
+% additional options needed under compsoc mode. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false]{caption}
+%  \usepackage[font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false]{caption}
+%  \usepackage[font=footnotesize]{subfig}
+%\fi
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley and Jeff Goldberg.
+% This package may be useful when used in conjunction with IEEEtran.cls'
+% captionsoff option. Some IEEE journals/societies require that submissions
+% have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.3.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% For subfigure.sty:
+% \let\MYorigsubfigure\subfigure
+% \renewcommand{\subfigure}[2][\relax]{\MYorigsubfigure[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat/subfig command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/endfloat/
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+%\usepackage{times}
+%\usepackage{epsfig}
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage[lined,algonl,boxed]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage[dvips]{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{multirow}
+
+\newcommand{\comment}[1]{}
+
+% correct bad hyphenation here
+%\hyphenation{op-tical net-works semi-conduc-tor}
+
+%\newcommand{\add}[1]{\textcolor{red}{[\bf ADD: #1]}}
+%\newcommand{\delete}[1]{\textcolor{blue}{[\bf DELETE: #1]}}
+%\newcommand{\RLcomment}[1]{\textcolor{green}{[\bf COMMENT: #1]}}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Domain Adaptation by Optimal Feature Expansion}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%
+%\IEEEcompsocitemizethanks is a special \thanks that produces the bulleted
+% lists the Computer Society journals use for "first footnote" author
+% affiliations. Use \IEEEcompsocthanksitem which works much like \item
+% for each affiliation group. When not in compsoc mode,
+% \IEEEcompsocitemizethanks becomes like \thanks and
+% \IEEEcompsocthanksitem becomes a line break with idention. This
+% facilitates dual compilation, although admittedly the differences in the
+% desired content of \author between the different types of papers makes a
+% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% journal papers have the author affiliations above the "Manuscript
+% received ..."  text while in non-compsoc journals this is reversed. Sigh.
+
+\author{
+        Ruonan~Li and~Todd~Zickler% <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem The authors are with the School of Engineering and Applied Sciences, Harvard University, Cambridge, MA 02138. Email: \{ruonanli,zickler\}@seas.harvard.edu}% <-this % stops a space
+\thanks{}}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{IEEE Transactions on Pattern Analysis and Machine Intelligence,~Vol.~xx, No.~xx, xx/~xx}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer redomain
+ %papers.                   ***
+% You can use \ifCLASSOPTIONpeerredomain
+ %for conditional compilation here if
+% you desire.
+
+
+
+% The publisher's ID mark at the bottom of the page is less important with
+% Computer Society journal papers as those publications place the marks
+% outside of the main text columns and, therefore, unlike regular IEEE
+% journals, the available text space is not reduced by their presence.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% or like this to get the Computer Society new two part style.
+%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2007 IEEE}%
+%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark (Computer Society jorunal
+% papers don't need this extra clearance.)
+
+
+
+
+% for Computer Society papers, we must declare the abstract and index terms
+% PRIOR to the title within the \IEEEcompsoctitleabstractindextext IEEEtran
+% command as these need to go into the title area created by \maketitle.
+\IEEEcompsoctitleabstractindextext{%
+\begin{abstract}
+
+When massive heterogeneous data are emerging from diverse sensors, the ability to handle changes in data distribution across training and testing datasets becomes crucial for statistical models and intelligent machines. A predominant way to address this challenge is through domain adaptation, and in this paper we propose a feature-based domain adaptation framework that operate on all three scenarios: unsupervised scenario where the labeled \textit{source domain} training data is accompanied by unlabeled \textit{target domain} test data, semi supervised scenario where a handful of labels are also available in the target domain for training, as well as the scenario of the existence of unlabeled instance correspondences between the source and the target domains. We present a feature transformation mechanism that could provide relevant information on the domain shift. The idea is to construct `expanded features' from original feature vectors from the source and target domains. The expanded feature is computed from an original feature by a linear dimension expansion transform, which consists of a stack of 'intermediate' linear (dimension reduction) projections derived from the two projections in the source domain and/or the target domain. As a result, the expanded feature, as a stacked sequence of transformed original feature serves as an augmented representation that embeds the statistical transition between two domains, and by developing a discriminative method for learning the two optimal projections in the source and/or the target, and consequently the sequence of intermediate projection operators, we ensure that these expanded `cross-domain' features can be used to meaningfully compare features invariantly across domains. We evaluate our approach for image based object recognition problems on two widely used \textit{Office} and \textit{Bing} adaptation datasets, for video/sequence based action recognition problems on a multimodal human action Database, and for sentiment classification -- an important application in natural language processing -- on textual reviews from amazon.com. 
+
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway. In particular, the Computer Society does
+% not want either math or citations to appear in the abstract.
+
+% Note that keywords are not normally used for peer redomain
+ %papers.
+ 
+\begin{keywords}
+Domain adaptation, Object recognition, Cross-modality recognition, Sentiment Classification 
+%Computer Society, IEEEtran, journal, \LaTeX, paper, template.
+\end{keywords}}
+
+
+% make the title area
+\maketitle
+
+
+% To allow for easy dual compilation without having to reenter the
+% abstract/keywords data, the \IEEEcompsoctitleabstractindextext text will
+% not be used in maketitle, but will appear (i.e., to be "transported")
+% here as \IEEEdisplaynotcompsoctitleabstractindextext when compsoc mode
+% is not selected <OR> if conference mode is selected - because compsoc
+% conference papers position the abstract like regular (non-compsoc)
+% papers do!
+\IEEEdisplaynotcompsoctitleabstractindextext
+% \IEEEdisplaynotcompsoctitleabstractindextext has no effect when using
+% compsoc under a non-conference mode.
+
+
+% For peer redomain
+% papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerredomain
+
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerredomain
+% papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerredomain
+\maketitle
+
+
+
+%%%%%%%%%%%%%%%%%%%%  BODY TEXT  %%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+In pattern classification, the distribution of samples to be classified is often different from that available for training. This arises very naturally in many applications in computer vision, speech, and language processing:  identifying objects under different illumination conditions and poses, training speech recognizers in a noise-free environment but deploying to environments with unpredictable noise characteristic, etc. A common theme in these scenarios is that while labels for the source domains are often readily available, collecting labels for the target domains is too expensive or time-consuming. Examples particular to visual data include: 1) in recognizing objects in images taken by a smartphone, available annotations exist in different sources (amazon.com, ImageNet, etc.); 2) in detecting and segmenting an organ of interest from MRI images, available algorithms are instead optimized on CT and X-Ray images; 3) millions of Flickr photos or YouTube videos can be readily obtained using keywords while a user may be interested in organizing her own multimedia collection but is reluctant to annotate it; and many others. This challenge is commonly referred as "covariate shift'' \cite{Shimodaira2000,Gretton,Bickel}, or "data selection bias'' \cite{1979, Zadrozny04,Cortes}. The data selection bias effect has been prevalent, and recent study on deep learning shows that even a deep neural network trained on a large-scale image dataset does not eliminate the effect \cite{HoffmanTDJSD13}.
+
+Regardless of the cause, any distributional change that occurs after learning can degrade classification performance. \emph{Domain adaptation} \cite{daumÈ2006domain, ben2007analysis, mansour2009domain, ben2010theory}, or \emph{transductive transfer learning} \cite{transductive,pan_survey}, aims at lessening this degradation. A domain adaptation problem setting usually involves a \textit{source} domain, where samples are well-annotated with class labels and a discriminative classifier can be trained, and a \textit{target} domain, where very few annotations are available. The domains are often assumed to be homogeneous in the sense of having the same underlying dimension. At the core of various domain adaptation approaches is the attempt to transfer knowledge on the source domain, in the form of labelled training samples or models or classifiers learned on that domain,  to new domains with a minimum possible additional effort on exploiting the limited supervision in the target domains. There are two broad categories of domain adaptation techniques depending on whether the target domain has either partial labels (\emph{(semi)supervised adaptation}) or is completely unlabeled (\emph{unsupervised adaptation}). The majority of existing domain adaptation works operate in the (semi)-supervised setting, and the unsupervised setting receives significantly less attention. In addition to the availability of labels, one often finds and consider the availability of unlabeled instances that are simultaneously observed as samples in two or more domains. For example, we may know that an action is being performed by the same actor and being observed simultaneously by a combination of RGB camera, depth camera, and motion sensors from different domain
+points, without knowing what type of action he/she is performing. We refer to such unlabeled samples as \emph{instance correspondences} among domains, and in many situations they are more available than explicit class labels. 
+
+Regardless of the various cross-domain constraints in terms of label availability or instance correspondence, the central question any domain adaptation technique must answer, is how to transfer the knowledge from the source domain, or what to transfer. A straightforward strategy seeks \emph{instance transfer} \cite{Zadrozny04,Bickel,dai2007transferring,nips07:Huang,Sugiyama08directimportance,Ian05animproved,gong2013connecting}: it assumes certain parts of the data in the source domain can be reused for learning in the target domain by reweighting. Instance reweighting and importance sampling are two major techniques in this context. A second strategy can be referred to as \emph{feature representation transfer} \cite{ben2007analysis,Dai,blitzer2006domain,blitzer2006domain,daume2007frustratingly,Blitzer07Learning,PanTCA,Evgeniou:2004,Weinberger:2009,duan2012learning,GopalanLC14}, which learns an appropriate feature representation for the target domain and/or across domains. In this case, the knowledge used to transfer across domains is encoded into the learned feature representation. A third strategy looks for ways of \emph{model/parameter transfer} \cite{Chapelle05amachine,Yu:2005,Daume:2009,Glorot11domainadaptation,duan2012visual,Duan_PAMI,SeahTsang,Yang:2007,Saenko:2010,Kulis2011,Bruzzone,Qiu,gong2012geodesic,Wang:2011,Tommasi,HoffmanInvarant,DADPM,Khosla,Jhuo,Tang_NIPS2012}, in which the source model and the target model share common parameters or prior distributions of the hyper-parameters of the models. As the transferred knowledge is encoded into the shared parameters or priors, the goal boils down to discovering the shared parameters. 
+
+
+We introduce \emph{Optimal Feature Expansion} (OFE) as a tool for domain adaptation that can simultaneously accommodate all three adaptation settings -- semi-supervised adaptation, unsupervised adaptation, as well as unlabeled instance correspondences. Most previous approaches addressed only subsets of the three cases, and OFE is the first framework, to the best of our knowledge, that uniformly address all three cases. Our approach falls into the category of feature representation transfer, and the idea is to construct `expanded features' from original feature vectors from the source and target domains. The expanded feature is computed from an original feature by a linear dimension expansion transform, which consists of a stack of 'intermediate' linear (dimension reduction) projections derived from the two projections in the source domain and/or the target domain. As a result, the expanded feature, as a stacked sequence of transformed original feature serves as an augmented representation that embeds the statistical transition between two domains, and by developing a discriminative method for learning the two optimal projections in the source and/or the target, and consequently the sequence of intermediate projection operators, we ensure that these expanded `cross-domain' features can be used to meaningfully compare features invariantly across domains. This approach can be seen as a generalization and enhancement of the earlier line of feature augmentation approaches, as will be discussed in detail.
+ 
+The approach introduced was reported in \cite{Li_cross_view} for a cross-view action recognition task. In this paper, we conduct extensive evaluations of the approach on broader dataset and show that OFE is a generic and powerful tool for domain adaptation under various problem settings.
+
+The rest of the paper is organized as follows: In Section \ref{ofe}, we describe the technical details of OFE. In Section \ref{detail}, we explain the classifier, algorithm initialization, the handling of multiple classes and multiple source domains. In Section \ref{discuss}, we show how OFE relates to and generalizes several previous feature based transfer approaches (which are therefore special cases of OFE), and consequently provide insight on the reason why OFE performs better than these baselines. Finally in Section \ref{exp}, we present and analyze extensive experimental study of OFE in comparisons to multiple baselines.
+
+\section{Optimal Feature Expansion}
+\label{ofe}
+
+Consider source domain $\mathcal{D}_{S}$ and target domain $\mathcal{D}_{T}$, and imagine that they are both drawn from the ``space of domains". In this space, imagine that there exists a continuous path $\mathcal{D}(\lambda)$, $0\le\lambda\le 1$, which connect the source domain and target domain by $\mathcal{D}(0)=\mathcal{D}_{S}$ and $\mathcal{D}(1)=\mathcal{D}_{T}$.  Recall that we identify each domain by its associated dimension reduction projection of the original features. To this end, it is convenient to express the transformation associated with the source domain as $g_{S}(\mathbf{x})=A^{T}_{S}\mathbf{x}$ and that associated with the target domain
+ as $g_{T}(\mathbf{x})=A^{T}_{T}\mathbf{x}$, where $\mathbf{x}$ is a $D$-dimensional original feature (\textit{e.g.}, histogram on a vocabulary of visual words, or ``deep feature" as sliced from the outputs of the second or third layers from the back of a deep neural network) computed from either the source domain (in the former case) or the target domain (in the latter case). Here $A_{S}, A_{T}$ are both $D\times d$ matrices satisfying $A^{T}_{S}A_{S}=I$ and $A^{T}_{T}A_{T}=I$, \textit{i.e.}, they both have orthogonal columns of unit-length, and induce a linear dimensionality deduction.
+
+We represent the domain change along the path $\mathcal{D}(\lambda)$ implicitly as alterations of the feature extractors $g_{S}$ and $g_{T}$ (and thus the matrices $A_{S}$ and $A_{T}$). For this purpose, we define $g(\lambda,\mathbf{x})=A^{T}_{\lambda}\mathbf{x}$  for $0<\lambda<1$, where $A_{\lambda}$ is also a $D\times d$ transformation matrix, $g(0, \mathbf{x})=g_{S}(\mathbf{x})$, and $g(1, \mathbf{x})=g_{T}(\mathbf{x})$. Sampling the path $\mathcal{D}(\lambda)$ at a finite number of intervals $\lambda_{1}, \lambda_{2},\cdots, \lambda_{L}$ ($0<\lambda_{1}<\lambda_{2}<\cdots<\lambda_{L}<1$) yields a sequence of `intermediate domains $\mathcal{D}(\lambda_{1}), \mathcal{D}(\lambda_{2}),\cdots, \mathcal{D}(\lambda_{L})$, and the consecutive incremental `jumps' from $\mathcal{D}(0)=\mathcal{D}_{S}$ to $\mathcal{D}(\lambda_{1})$, $\mathcal{D}(\lambda_{2})$, \textit{etc.}, through to $\mathcal{D}(1)=\mathcal{D}_{T}$ are intended to establish a smooth bridge between the knowledge existing in the two domains. Since we have associated a domain
+ $\mathcal{D}$ with a transform $g$ uniquely identified by a matrix $A$ , the sequence of intermediate domain projection transforms $g(\lambda_{1},\mathbf{x})=A^{T}_{\lambda_{1}}\mathbf{x}, g(\lambda_{2},\mathbf{x})=A^{T}_{\lambda_{2}}\mathbf{x},\cdots, g(\lambda_{L},\mathbf{x})=A^{T}_{\lambda_{L}}\mathbf{x}$ can provide a sequence of intermediate features that characterize the smooth changes of the features from the source to the target. 
+ 
+ 
+The major questions to be answered are how to choose effective projections $g_{S}$, $g_{T}$ (\textit{i.e.}, $A_{S}$, $A_{T}$) and how to alter the transformations to define the intermediate
+ path $g(\lambda,\mathbf{x})$ (\textit{i.e.}, $A_{\lambda}$). In \ref{interpolate}, we show that for a given pair of transformations $A_{S}$, $A_{T}$, there exists a particular path connecting the two, allowing the intermediate
+ domains to be obtained analytically. Then, in \ref{MI} we formulate the problem of identifying the optimal pair $(A_{S}, A_{T})$ under our three distinct working modes, so that in each case the augmented cross-domain
+ features are discriminative among categories. Finally, we provide the algorithm to solve this problem and determine the optimal $A_{S}$ and $A_{T}$ in \ref{algo}.
+
+\subsection{Obtaining Expanded Cross-Domain Features}
+\label{interpolate}
+
+For the moment, let us assume that the source and target domain transformations $A_{S}$ and $A_{T}$ have been given, and our task is to compute the transforms $A_{\lambda}$ that connect them along a intermediate
+ path. To this end, we aim to determine a path of $D\times d$ matrices from $A_{S}$ to $A_{T}$. There are various ways to establish such connections between the two matrices, among which one possibility is to look into the space of all $D\times d$ matrices and make use of its geometry \cite{Edelman}. However, manipulation in this space is computationally inconvenient, so we pursue an alternative approach. By construction the columns of $A_{S}$ and $A_{T}$ are of unit length and therefore lie on a hyper-sphere. Thus, a natural definition for a continuous path between the $i$th column of $A_{S}$ and the $i$th column of $A_{T}$ is the segment of the great circle that connects them. We define a closed-form path between the matrices as wholes by separately identifying the $D$ geodesics between their $D$ corresponding columns, and then traveling simultaneously along these geodesics from the columns of $A_{S}$ at rates that guarantee simultaneous arrival at columns of $A_{T}$. Specifically, to get the transforms $A_{\lambda}, \lambda=\lambda_{1}, \lambda_{2}, \cdots, \lambda_{L}$ along the intermediate
+ path that connects $A_{S}=[\mathbf{a}_{S,1}, \mathbf{a}_{S,2}, \cdots, \mathbf{a}_{S,D}]$ to $A_{T}=[\mathbf{a}_{T,1}, \mathbf{a}_{T,2}, \cdots, \mathbf{a}_{T,D}]$, we compute 
+ \begin{equation}
+\label{geo}
+\mathbf{a}_{\lambda,i}=\frac{(1-\lambda)\mathbf{a}_{S,i}+\lambda\mathbf{a}_{T,i}}{\lambda^{2}+(1-\lambda)^{2}+2\lambda(1-\lambda)\mathbf{a}^{T}_{S,i}\mathbf{a}_{T,i}},
+\end{equation}
+and then obtain $A_{\lambda}=[\mathbf{a}_{\lambda,1}, \mathbf{a}_{\lambda,2}, \cdots, \mathbf{a}_{\lambda,D}]$.
+
+Note that columns of an $A_{\lambda}$ constructed in this way are not necessarily orthogonal, but remain unit-norm. The preservation of unit-length guarantees that the transformed feature $A^{T}_{\lambda}\mathbf{x}$ is at the same scale as $A^{T}_{S}\mathbf{x}$ and $A^{T}_{T}\mathbf{x}$. To create our augmented cross-domain feature, we simply concatenate  the transformed features into a single long feature vector:
+\begin{equation}
+\label{augment}
+\hat{\mathbf{x}}=[(A^{T}_{S}\mathbf{x})^{T}, (A^{T}_{\lambda_{1}}\mathbf{x})^{T}, \cdots, (A^{T}_{\lambda_{L}}\mathbf{x})^{T}, (A^{T}_{T}\mathbf{x})^{T}]^{T}.
+\end{equation} 
+This new feature implicitly incorporates the smooth change from one domain to the other, and therefore bridges the two domains and serves as a new, unified feature vector. 
+
+
+\subsection{Optimal Discriminative Expansion}
+\label{MI}
+
+Since our intermediate domain transforms are completely determined by matrices $A_{S}$ and $A_{T}$, we now turn to the question about how to choose good values for $A_{S}$ and $A_{T}$. Let us consider a two-class problem (multi-class problems can be treated as a set of two-class problems using one versus all approach) with positive training examples $\{(\mathbf{x}_{P, i}, 1)\}^{n_{P}}_{i=1}$ and negative training examples $\{(\mathbf{x}_{N, j}, -1)\}^{n_{N}}_{j=1}$. In the unsupervised adaptation setting, all these labeled samples come from the source domain. For the semisupervised adaptation setting, only a minority of the above training samples come from the target domain. In either case, we would like to maximize our ability to discriminate between the two classes in all available labeled samples. To this end, we seek transformations $A_{S}$ and $A_{T}$ that maximize the mutual information between cross-domain feature $\hat{\mathbf{x}}$ and the class label $c\in \{1,-1\}$:
+
+\begin{equation}
+\label{P1}
+\max_{A_{S}, A_{T}} I(\hat{\mathbf{x}}; c).
+\end{equation}
+
+Note that 
+\begin{equation}
+\begin{split}
+&I(\hat{\mathbf{x}}; c)=H(\hat{\mathbf{x}})-H(\hat{\mathbf{x}}|c)\\
+&=H(\hat{\mathbf{x}})-P(c=1)H(\hat{\mathbf{x}}_{P})-P(c=-1)H(\hat{\mathbf{x}}_{N}),
+\end{split}
+\end{equation}
+so (\ref{P1}) can be written in terms of the differential entropy $H(\hat{\mathbf{x}})$. 
+
+To solve (\ref{P1}), we approximate differential entropy $H(\hat{\mathbf{x}})$ using a finite set of samples. Assuming that the samples of cross-domain
+ feature $\hat{\mathbf{x}}$ are drawn from a Gaussian distribution, we may write $H(\hat{\mathbf{x}})=\frac{1}{2}\ln((2\pi e)^{d(L+2)}\det\Sigma)$, in which the covariance matrix $\Sigma$ can be estimated from samples $\hat{\mathbf{x}}$. Further assuming equal prior probabilities for the two classes, we approximate the objective in (\ref{P1}) by
+\begin{equation}
+\label{P1a}
+I(\hat{\mathbf{x}}; c)\doteq\ln\det\Sigma_{all}-\frac{1}{2}\ln\det\Sigma_{P}-\frac{1}{2}\ln\det\Sigma_{N},
+\end{equation}
+where $\Sigma_{all}, \Sigma_{P}, \Sigma_{N}$ are covariance matrices computed from all labeled samples, the positive samples, and the negative samples respectively.
+
+We may take a similar approach to choose the optimal transformation pair $A_{S}$ and $A_{T}$ in the case that unlabeled instance correspondences exist between the two domains. Specifically, labeled samples can be written as $\{(\mathbf{x}^{(S)}_{P, i}, 1)\}^{n_{P}}_{i=1}$ and $\{(\mathbf{x}^{(S)}_{N, j},  -1)\}^{n_{N}}_{j=1}$ since in this mode the labels are not shared across the two domains. The instances in correspondence, meanwhile, can be expressed as $\{(\mathbf{x}^{(S)}_{k}, \mathbf{x}^{(T)}_{k})\}^{n_{C}}_{k=1}$ where the unlabeled pair $(\mathbf{x}^{(S)}, \mathbf{x}^{(T)})$  describes the same instance observed in two domains. We expand all $\mathbf{x}^{(S)}$ and $\mathbf{x}^{(T)}$ to get $\hat{\mathbf{x}}^{(S)}$ and $\hat{\mathbf{x}}^{(T)}$, and define $\Delta\hat{\mathbf{x}}=\hat{\mathbf{x}}^{(S)}-\hat{\mathbf{x}}^{(T)}$ for each pair $(\mathbf{x}^{(S)}, \mathbf{x}^{(T)})$ corresponding to the same instance. Since the pair $(\hat{\mathbf{x}}^{(S)}, \hat{\mathbf{x}}^{(T)})$ describes the same instance, we expect $\Delta\hat{\mathbf{x}}$ to be close to zero. In addition to maximizing the mutual information between $\hat{\mathbf{x}}$ and the class label $c\in \{1,-1\}$, we add penalty $H(\Delta\hat{\mathbf{x}})$ to solve
+\begin{equation}
+\label{P2}
+\max_{A_{S}, A_{T}} I(\hat{\mathbf{x}}; c)-\gamma H(\Delta\hat{\mathbf{x}}).
+\end{equation}
+As previously, we approximate the mutual information in terms of covariance matrices and assume the cross-domain feature $\Delta\hat{\mathbf{x}}$ to be Gaussian distributed with zero mean, since we expect it to be not only compactly distributed but also close to the origin. The objective in (\ref{P2}) is therefore approximated by
+\begin{equation}
+\label{P2a}
+\begin{split}
+I(\hat{\mathbf{x}}; c)-\gamma H(\Delta\hat{\mathbf{x}})\doteq&\ln\det\Sigma_{all}-\frac{1}{2}\ln\det\Sigma_{P}\\
+&-\frac{1}{2}\ln\det\Sigma_{N}-\gamma\ln\det\Sigma_{\Delta},
+\end{split}
+\end{equation}
+
+
+
+where $\Sigma_{\Delta}$ is the \textit{correlation} matrix for all $\Delta\hat{\mathbf{x}}$'s. A minimization of $\det\Sigma_{\Delta}$ will yield $\Delta\hat{\mathbf{x}}$'s concentrating around $\mathbf{0}$, by which we enforce the correspondence between the pair $(\hat{\mathbf{x}}^{(S)}, \hat{\mathbf{x}}^{(T)})$.  A practical issue that may arise is a rank deficiency in any of the covariance/correlation matrices. In this case we first determine the minimum rank among all involved matrices (say, $r$), and use the product of the top $r$ large eigenvalues of each matrix to approximate its determinant.
+
+In fact, our learning algorithm for maximizing (\ref{P2a}) can not only exploit the semi-supervisions considered in the three settings, but also accommodate any mixture of those modes: We simply need to encode the information regarding available labels and corresponding instances respectively into the covariance/correlation matrices $\Sigma_{all}$, $\Sigma_P$, $\Sigma_N$, and $\Sigma_\Delta$.
+
+\subsection{Obtaining the Optimal intermediate domains}
+\label{algo}
+
+We now go on to present the algorithm with which we optimize the two objectives (\ref{P1a}) and (\ref{P2a}) above. For simplicity, we denote the objectives in both (\ref{P1a}) and (\ref{P2a}) as $J(A_{S}, A_{T})$ in the following discussion.
+
+We employ a greedy algorithm that iteratively searches for transformations $(A_{S}, A_{T})$ that maximize $J$. To use a gradient based approach, we need to evaluate $\frac{\partial J(A_{S}, A_{T})}{\partial A_{S}}$ and $\frac{\partial J(A_{S}, A_{T})}{\partial A_{T}}$ subject to $A^{T}_{S}A_{S}=I$ and $A^{T}_{T}A_{T}=I$, which is difficult. Instead, we consider an axis-rotating approach. Let $A_{S}(t-1)$ to be the estimate for $A_{S}$ and $A_{T}(t-1)$ to be the estimate for $A_{T}$ at iteration $t-1$. We seek matrices $R_{S}(t), R_{T}(t)\in \mathbf{SO}(D)$, \textit{i.e.}, the $D$-dimensional special orthogonal group, so that the estimate at step $t$ is $A_{S}(t)=R_{S}(t)A_{S}(t-1)$ and $A_{T}(t)=R_{T}(t)A_{T}(t-1)$. In essence, we seek a pair of $R_{S}(t), R_{T}(t)$ to provide a steep ascent in $J$. Note that $\mathbf{SO}(D)$ corresponds to the set of rotation operations in $\mathbb{R}^{D}$, thus the resulting $A_{S}(t), A_{T}(t)$ will be orthonormal matrices as well. 
+
+To determine the rotations $R_{S}(t)$ and $R_{T}(t)$ given the rotations $R_{S}(t-1)$ and $R_{T}(t-1)$ at the previous step, we apply approximate gradient computation on $\mathbf{SO}(D)$, \emph{i.e.}, we aim to computing an approximation of the gradients $\frac{\partial J(R_{S}(t-1),R_{T}(t-1))}{\partial R_{S}(t-1)}$ and $\frac{\partial J(R_{S}(t-1),R_{T}(t-1))}{\partial R_{T}(t-1)}$. For notational simplicity, let us rewrite this new objective as
+\[
+\max_{R\in\mathbf{SO}(D)}J(R).
+\]
+The steepest ascent direction is the gradient of $J$ with respect to $R$. The gradient on $\mathbf{SO}(D)$ is defined as a vector $\nabla J\in\mathbf{so}(D)$, where $\mathbf{so}(D)$ is the associated Lie algebra, such that
+\[
+\nabla J=\arg\max_{\xi\in\mathbf{so}(D), \|\xi\|=1} \frac{\partial J(\xi)}{\partial\xi}.
+\]
+Here $\frac{\partial J(\xi)}{\partial\xi}$ is the directional derivative of $J$ along $\xi$. To find the optimal $\xi$, we express it in terms of a  linear combination of the basis axes of $\mathbf{so}(D)$:
+\[
+\xi=\sum_{i,j}c_{i,j}(E_{i,j}-E_{j,i}), 2\le i \le D, i+1\le j \le D,
+\]
+where we have employed the fact that $E_{i,j}-E_{j,i}, 2\le i \le D, i+1\le j \le D$ is the basis of $\mathbf{so}(D)$. Consequently, the search for a gradient direction becomes
+\[
+\nabla J=\arg\max_{c_{i,j}} \frac{\partial J(\sum_{i,j}c_{i,j}(E_{i,j}-E_{j,i}))}{\partial(\sum_{i,j}c_{i,j}(E_{i,j}-E_{j,i}))}, s.t. \sum_{i,j}c^{2}_{i,j}=1.
+\]
+
+We first approximate the directional derivative along a linear combination of basis axes by the linear combination of directional derivatives along the axes, \textit{i.e.},
+\begin{equation}
+\label{gradLie}
+\begin{align}
+&\nabla J\doteq\arg\max_{c_{i,j}} \sum_{i,j}c_{i,j}\frac{\partial J(\sum_{i,j}c_{i,j}(E_{i,j}-E_{j,i}))}{\partial(E_{i,j}-E_{j,i})}, \\
+&s.t. \sum_{i,j}c^{2}_{i,j}=1,
+\end{align}
+\end{equation}
+and then approximate the partial derivative $\frac{\partial J(\sum_{i,j}c_{i,j}(E_{i,j}-E_{j,i}))}{\partial(E_{i,j}-E_{j,i})}$ by its finite difference as
+\begin{equation}
+\begin{align}
+&\frac{\partial J(\sum_{i,j}c_{i,j}(E_{i,j}-E_{j,i}))}{\partial(E_{i,j}-E_{j,i})}\\
+&\doteq\frac{J(\exp(\epsilon(E_{i,j}-E_{j,i})))-J(\mathbf{o})}{\epsilon}\triangleq\Delta J_{i,j}
+\end{align}
+\end{equation}
+in which $\epsilon$ is a small positive number. As a result, the optimization (\ref{gradLie}) has close-form solution
+\[
+c_{i,j}=\frac{\Delta J_{i,j}}{(\sum_{i',j'}\Delta J^{2}_{i',j'})^{\frac{1}{2}}}.
+\]
+
+We hence find an approximate gradient on $\mathbf{SO}(D)$, namely $\nabla J$, and the final step is a line search along $\nabla J$ at a step length $\delta$ at $J(\exp(n\delta\nabla J)A)$. details on $\mathbf{SO}(D)$ can be found, for example, in \cite{Hall}. 
+
+
+By jointly considering $R_{S}$ and $R_{T}$ we reach the greedy axis rotation algorithm in Algorithm 1. In practice, we initialize $A_{S}(0)$ and $A_{T}(0)$ as described in the next section, and iterate Algorithm 1 until $A_{S}(t)=A_{S}(t-1)$ and $A_{T}(t)=A_{T}(t-1)$. 
+
+\begin{algorithm}
+\begin{itemize}
+\item Input: $A_{S}(t-1)$, $A_{T}(t-1)$,  $\epsilon>0$, $\delta>0$,  $N>0$;
+\item For $2\le i \le D, i+1\le j \le D$, compute $R_{S,i,j}=\exp(\epsilon(E_{i,j}-E_{j,i}))$, and $\Delta J_{S,i,j}=J(R_{S,i,j}A_{S}(t-1), A_{T}(t-1))-J(A_{S}(t-1), A_{T}(t-1))/\epsilon$, where $E_{i,j}$ is a matrix whose $(i,j)$th element is one and all others are zero;
+\item For $1\le k \le D, k+1\le l \le D$, compute $R_{T,k,l}=\exp(\epsilon(E_{k,l}-E_{l,k}))$,  and $\Delta J_{T,k,l}=J(A_{S}(t-1), R_{T,k,l}A_{T}(t-1))-J(A_{S}(t-1), A_{T}(t-1))/\epsilon$;
+\item Compute $c_{i,j}=\frac{\Delta J_{S,i,j}}{(\sum_{i',j'}\Delta J^{2}_{S, i',j'}+\sum_{k',l'}\Delta J^{2}_{T, k',l'})^{\frac{1}{2}}}$, and  $c_{k,l}=\frac{\Delta J_{T,k,l}}{(\sum_{i',j'}\Delta J^{2}_{S, i',j'}+\sum_{k',l'}\Delta J^{2}_{T, k',l'})^{\frac{1}{2}}}$;
+\item Let $R_{S,n}=\exp(n\delta\sum_{i,j}c_{i,j}(E_{i,j}-E_{j,i}))$ and $R_{T,n}=\exp(n\delta\sum_{k,l}c_{i,j}(E_{k,l}-E_{l,k}))$, find $R_{S}(t), R_{T}(t)$ by
+
+\begin{math}
+n^{*}=\arg\max_{0\le n\le N}J( R_{S,n}A_{S}(t-1), R_{T,n}A_{T}(t-1)),
+\end{math} 
+
+and then $R_{S}(t)=R_{S,n^{*}}$, $R_{T}(t)=R_{T,n^{*}}$;
+\item Output: $A_{S}(t)=R_{S}(t)A_{S}(t-1)$, and $A_{T}(t)=R_{T}(t)A_{T}(t-1)$. 
+
+\end{itemize}
+\caption{Greedy Axis Rotation. \vspace{-10pt}}
+\label{Algo:1}
+\end{algorithm}
+
+
+\section{Implementation Details and Extensions}
+\label{detail}
+
+The first step in training our model is to extract the original single-domain features. In all cases we use an equally-spaced sequence for the path parameter $\lambda$, \textit{i.e.}, $\lambda_{i}=\frac{i}{L+1}$. Once the optimal transformations are computed, we compute cross-domain features $\hat{x}$ for all training samples and use the subset of labeled samples to train a cross-domain classifier. There are many possible choices for the classifier, and in the experiments reported in this paper we use a Support Vector Machine (SVM) with RBF kernel, whose bandwidth is determined by cross-validation. 
+
+For any testing observation $\mathbf{x}$ from target domain, we compute its cross-domain feature $\hat{\mathbf{x}}$ using all transformations obtained from training stage, and then evaluate the SVM at this cross-domain feature. 
+
+\vspace{0.05in}
+
+\noindent\textbf{Initialization}. Good choices for initializing $A_{S}$ and $A_{T}$ can expedite the training procedure. For the source domain, we find it effective to use an orthonormal basis that spans the $d$ dimensional subspace determined by the Fisher discriminant for the labeled samples in that domain. For the target domain, we simply use the basis of the Fisher discriminant subspace if labeled samples are available, or that of the principal subspace if  not.
+\vspace{0.05in}
+
+\noindent\textbf{Multiple Classes}. For an $M$-class action recognition problem, we learn $M$ binary one-against-all models as described above. The final classification is determined by selecting the model whose SVM yields the maximum response.
+
+\vspace{0.05in}
+
+\noindent\textbf{Multiple Source Domains}. In many applications we may have $w$ source domains with $w>1$. In this case, given a test instance from the target domain, we simply aggregate the response values from the $w$ MKL-SVM classifiers on their respective cross-domain features $\hat{\mathbf{x}}$, and then make a binary decision with the threshold at 0. For a $M$-class problem, we select the class which achieves the maximum aggregated response value.
+
+
+\section{Discussion}
+\label{discuss}
+
+A close look at the cross-domain representation (\ref{augment}) and comparison with previous approaches lead to further insights that OFE essentially generalize feature augmentation approaches: One may observe that by setting $A_S=I$ (resp. $A_S=O$), $A_{\lambda_1}=I$, $A_T=O$ (resp. $A_T=I$),  and $A_{\lambda_2}=A_{\lambda_3}=\cdots=A_{\lambda_L}=O$, one obtain the cross-domain features in \cite{daume2007frustratingly}. Similarly, setting  $A_S$ and $A_T$ as the principal components of the source domain features and target domain features and interpolating the intermediate $A_\lambda$'s along the geodesic on the Grassmanian yields the basic version of the cross-domain features designed in \cite{GopalanLC14}. Finally, the approach in \cite{duan2012learning} differs from that in \cite{daume2007frustratingly} only by learning an optimal matrix $A_{\lambda_1}$ instead of specifying it as identity. In contrast to all these previous approaches, OFE jointly optimize all sub-transformations, and this explains the reason why OFE achieves better knowledge transfer across domains.
+
+
+\section{Experiment}
+\label{exp}
+
+
+We evaluate our approach on three datasets. The first is a combination of two widely used benchmark -- Office dataset \cite{Saenko:2010} and Bing dataset \cite{Bing} , which consist of still images of typical office objects, and provides us the opportunity to evaluate OFE in the semisupervised and unsupervised adaptation settings for object recognition. The second is the Berkeley Multimodal Human Action Database (MHAD) \cite{MHAD} --  a set of videos or sequences recording human actions by multiple types of optical/motion sensors. We use this data to evaluate OFE for action recognition, in the setting that unlabeled instance correspondences are abundant.  The last is the online reviews of merchandises from amazon.com, as originally presented in \cite{Blitzer07Learning}, and we use it in the setting of semi supervised and unsupervised multi-source adaptation for sentiment classification.
+
+
+\subsection{Cross-Domain Object Recognition}
+\label{objrec}
+
+
+ \begin{table*}[ht]
+\centering \caption{Object recognition accuracy (\%) in a domain adaptation setting on the Office dataset and the Bing dataset using the SURF feature. Each row is a baseline approach and each column a source-target combination. The three accuracy numbers in a triple are the average recognition accuracy when 0\%, 5\% and 20\% of the target domain samples are used for labeled training samples, respectively. }
+{\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline      & Amazon$\rightarrow$Bing & Amazon$\rightarrow$DSLR & Amazon$\rightarrow$WebCam \\
+\hline SUT &  15.6/19.3/22.7      & 5.4/6.4/10.8          & 10.4/11.3/12.1  \\ 
+\hline AUG &   NA/21.2/23.8       &   NA/10.0/17.5    &  NA/11.3/18.2  \\
+\hline GFS &   21.5/23.7/25.4       & 10.8/12.4/15.0           &  13.6/15.7/20.7   \\
+\hline MIX & NA/18.6/23.0      & NA/8.6/13.3         & NA/7.5/11.7    \\
+\hline MetL & NA/20.1/27.5      & NA/18.9/30.3        & NA/18.3/38.7    \\
+\hline GFK & 20.6/22.0/26.8  & 11.3/11.9/15.4    & 13.8/15.5/22.4   \\
+\hline OFE & 23.8/24.6/26.5  & 12.0/13.4/15.4    & 14.1/16.7/21.7  \\
+\hline
+\hline     & Caltech256$\rightarrow$Bing & Caltech256$\rightarrow$DSLR & Caltech256$\rightarrow$WebCam \\
+\hline SUT &  1.2/7.4/13.5        & 16.0/19.8/21.8       & 19.4/23.1/27.8 \\
+\hline AUG & NA/7.8/13.7      &   NA/25.4/31.3         & NA/27.8/31.2  \\
+\hline GFS & 2.6/8.3/14.4      & 18.0/20.5/30.8          &  24.6/30.8/38.1     \\
+\hline MIX & NA/7.6/13.7      & NA/14.0/25.6         & NA/25.8/30.2   \\
+\hline MetL & NA/7.5/13.6       & NA/23.1/51.2         & NA/30.8/56.8   \\
+\hline GFK & 2.8/8.3/14.7 & 19.7/25.1/32.6    & 25.5/33.8/39.0   \\
+\hline OFE & 2.6/8.5/14.7 & 24.8/30.4/31.8   & 30.5/35.9/39.3  \\
+\hline
+
+\end{tabular}
+}
+\label{surf}
+\end{table*}
+
+
+
+The  Office dataset \cite{Saenko:2010}  is  a  collection  of  images  from  three  distinct  domains:  Amazon,  DSLR, and Webcam.  The domain shift is caused by several factors including change in resolution, pose, lighting etc.  The 31 categories in the dataset consist of objects commonly encountered in office settings, such as keyboards, file cabinets, and laptops.  There are 4652 images in total, with the object types belonging to backpack, bike, notebook, stapler etc. The amazon domain has an average of 90 instances for each category, whereas dslr and webcam have roughly around 30 instances for a category. Multiple images of the same object instance are not used across both training and testing. 
+
+The Bing dataset \cite{Bing} has two domains: the images from Caltech256 that has 256 object categories, and the corresponding results of those categories obtained from $Bing$ image search. 
+
+To compare with OFE, we selected a few baseline approaches and implemented them under the same experimental setting.  As a very elementary baseline, we combine the source and target domains into a single domain simply by putting all training samples from both domains together for training the classifier. This can be considered as a way of instance transfer, and we denote this approach as SUT. We also selected two baselines in the category of feature representation transfer:  \cite{daume2007frustratingly}, denoted as AUG, and \cite{GopalanLC14}, denoted as GFS. As discussed in Section \ref{discuss}, both approaches are essentially special cases of OFE. Note that \cite{GopalanLC14} introduced several ways in generating ``intermediate domains" (See Sections 2 and 3 in  \cite{GopalanLC14}), and in the experiments reported below we are always referring the results from GFS as the best among all ways described in these two sections. Finally, we selected three baselines from the model/parameter transfer. The first one, denoted as MIX, learns a linear combination of two classifiers training on the source domain and the target domain respectively (See Section 4.2 in \cite{Bing}). The second one, denoted as MetL, learns a cross-domain metric for measuring the distance/similarity between feature vectors. The results from MetL reported below represent the best among all variations as described by \cite{Saenko:2010} and \cite{Kulis2011}. The third one, denoted as GFK, defines a kernel in measuring the similarity between two features across domains based on the geodesic computation given in \cite{GopalanLC14} and therefore may be considered as an extension to \cite{GopalanLC14}.
+
+%% setting 1
+
+
+
+
+\noindent\textbf{SURF Features}. We first followed the protocol of \cite{Saenko:2010} for extracting image features to represent the objects in both Office dataset and Bing dataset. We resized all images to $300\times 300$ and converted them into grayscale. SURF features \cite{Bay:2008:SRF} were then extracted, with the blob response threshold set at 1000. The 64-dimensional SURF feature vector was then collected from the images, and a codebook of size 800 was generated by k-means clustering on the SURF vectors in the \emph{source domain} each time a source-target partition is specified\footnote{This is different from the original setting in \cite{Saenko:2010}, where vectors used for codebook generation may include those from the test images from the target domain}. Then all the images are represented by a 800-bin histogram corresponding to the codebook. This forms our data representation for $\mathbf{x}$ and $\mathbf{\tilde{x}}$, with $D=800$. 
+
+We experiment with six source$\rightarrow$target combinations: Amazon$\rightarrow$Bing, Amazon$\rightarrow$DSLR, Amazon$\rightarrow$WebCam, Caltech256$\rightarrow$Bing, Caltech256$\rightarrow$DSLR, and Caltech256$\rightarrow$WebCam. They involve 10, 31, 31, 256, 10, and 10 categories respectively.  In each source$\rightarrow$target combination, we select 0\%(unsupervised), 5\%, and 20\% of all target domain samples, plus all source domain samples as training samples, and the remaining target samples as testing samples. There are two free parameters for OFE, $d$ and $L$, and the results reported in the following are obtained by five-fold cross-validation over the training samples, and the same strategy is used for the free parameters in GFS, GFK, as well as MetL.
+
+The average recognition accuracies are shown in Table \ref{surf}. As a predominant advantage of OFE is its ability to perform unsupervised adaptation, we are interested in its performance on this setting. It turns out on five out of the six source$\rightarrow$target combinations, OFE outperforms the competitors. In particular, OFE outperforms others on Caltech256$\rightarrow$DSLR and Caltech256$\rightarrow$WebCam
+with a significant margin. However, when the amount of labeled training samples in the target domain increases, model/parameter transfer achieves a larger performance gain than OFE and other feature/representation transfer approaches: This effect is seen on both MetL and GFK, between which MetL demonstrates a more substantial advantage over others. Nevertheless, comparisons among OFE and its special cases (AUG and GFS) shows a consistently improved accuracy by OFE from its special cases. This justifies the seek for optimal dimension expansions, as described in Section \ref{algo}, as apposed to using heuristic and fixed transforms.
+
+%% setting 2
+
+
+\noindent\textbf{Deep Features}. We use a "deep feature" extractor \cite{HoffmanTDJSD13}, which considers training a deep convolutional neural network (CNN) on a large-scale annotated image set and using the network to extract features of the Office dataset. This deep CNN extracts a visual feature DeCAF from the ImageNet-trained architecture of \cite{KNet}. The framework essentially adds the domain adaptation classification “layer” that takes the activations of one of the existing network’s layers as input features. ImageNet \cite{ILSVRC15} is the largest available dataset of image category labels.  \cite{HoffmanTDJSD13} uses 1000 categories worth of data (1.2M images) to train the network. Of these 31 categories, 16 overlap with the categories present in the 1000-category ImageNet classification task. Thus, for our experiments, we limit ourselves to \emph{the other 15 non-overlapping classes}, because knowledge of these 15 categories is neither explicitly nor implicitly known to the deep CNN and therefore the features of the testing images extracted by the deep CNN in the target domain are absolutely uninformed by any labels. 
+
+We experiment with two source$\rightarrow$target combinations: Amazon$\rightarrow$DSLR and Amazon$\rightarrow$WebCam. As aforementioned, they both involve 16 categories.  In each source$\rightarrow$target combination, we again select 0\%(unsupervised), 5\%, and 20\% of all target domain samples, plus all source domain samples as training samples, and the remaining target samples as testing samples. All free parameters are obtained by fivefold cross-validation.
+
+The recognition accuracies are reported in Table \ref{deep}. It is interesting to note that despite the deep CNN as a feature extractor is not influenced by the 15 categories under consideration, knowledge from ImageNet is still received by the 15 categories and helps to reduce the domain shift, or dataset bias effect, because a more accurate recognition is achieved even on SUT in a unsupervised setting. This capability also reduces the margins among different baselines, especially when none of scarce (5\%) amount of data from target domain is labeled. When labels become abundant in the target domain, however, similar trends may be observed as on SURF features: The increased accuracy implies domain shifts still exist for deep features. OFE when operated on deep features, demonstrates a comparable performance as its special cases, and this means optimizing the dimension expansion from its simple versions only has a mild effect on transferring knowledge from source domains.
+
+These results also motivate future investigation on the roles of employing large-scale labeled data and man-crafted computational tools in building generic systems and eliminating the data selection bias. Results in this section somewhat suggest a cooperation between the two approaches lead into a promising direction.
+
+ \begin{table}[ht]
+\centering \caption{Object recognition accuracy (\%) in a domain adaptation setting on the Office dataset and the Bing dataset using the Deep feature. Each row is a baseline approach and each column a source-target combination. The three accuracy numbers in a triple are the average recognition accuracy when 0\%, 5\% and 20\% of the target domain samples are used for labeled training samples, respectively. }
+{\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline      & Amazon$\rightarrow$DSLR & Amazon$\rightarrow$WebCam \\
+\hline SUT &  62.9/65.1/67.4     & 52.5/63.9/65.7    \\ 
+\hline AUG &   NA/63.0/68.7       &   NA/64.1/69.5   \\
+\hline GFS &   64.5/66.7/67.2       & 55.9/63.6/66.2  \\
+\hline MIX & NA/49.8/64.0      & NA/42.7/63.3  \\
+\hline MetL & NA/37.6/77.4      & NA/42.5/81.1    \\
+\hline GFK & 59.4/62.6/73.8  & 53.2/54.7/75.3  \\
+\hline OFE & 64.6/66.8/71.3  & 56.9/66.0/68.8  \\
+\hline
+\end{tabular}
+}
+\label{deep}
+\end{table}
+
+
+
+
+
+
+\subsection{Cross-View/Modality Action Recognition}
+
+The Berkeley Multimodal Human Action Database (MHAD) \cite{MHAD} contains 11 actions performed by 12 subjects. All the subjects performed 5 repetitions of each action, yielding about 660 action sequences. The specified set of actions comprises of (1) actions with movement in both upper and lower extremities, e.g., jumping in place, jumping jacks, throwing, etc., (2) actions with high dynamics in upper extremities, e.g., waving hands, clapping hands, etc. and (3) actions with high dynamics in lower extremities, e.g., sit down, stand up. 
+
+Each action was simultaneously captured by five different modalities: optical motion capture system, four multi-view stereo vision camera arrays, two Microsoft Kinect cameras, six wireless accelerometers and four microphones. Among them, we use the sensor data from the four multi-view stereo vision camera arrays and two Microsoft Kinect cameras to serve as data in different domains. The configuration of the sensors in different modalities(domains) can be found in Figure 1 of \cite{MHAD}.
+
+We select one camera from each of the four panels V1, V2, V3, and V4, denoted as C1, C2, C3, and C4. we also select the two Kinect depth sensors from V1 and V2, denoted as D1 and D2. The source$\rightarrow$target combinations are then divided as four groups. Group 1 includes C1$\rightarrow$C2, C2$\rightarrow$C1, C3$\rightarrow$C4 and C4$\rightarrow$C3, and represents domain shifts caused by view changes across the same type of sensor. Group 2 includes C1$\rightarrow$D1, C2$\rightarrow$D2, D1$\rightarrow$C1 and D2$\rightarrow$C2, and represents domain shifts caused by sensor type changes without view changes. Group 3 includes eight combinations given by four pairs (C1,C3), (C1, C4), (C2, C3), and (C2,C4), and represents domain shifts caused by changes in views and types of cameras. Finally, Group 4 includes all combinations given by pairs (C1, D2), (D1, C2), (C3, D1), (C3, D2), (C4, D1), and (C4, D2), and represents domain shifts caused by changes in views and types of sensors.
+
+In each source$\rightarrow$target combination, we randomly select 0\%, 5\%, and 20\% of the pairs of samples corresponding to the same action execution to serve as the unlabeled instance coresspondences. Labels on the remaining samples in the source domain are enabled, and the goal is to predict the labels for the remaining samples in the target domain. HOGHOF features \cite{HOGHOF} are extracted following the method specified in \cite{MHAD}, with the ``visual words" constructed from only the source domain samples.
+
+Similarly as in \ref{objrec}, we select 0\%(unsupervised), 5\%, and 20\% of all target domain samples, plus all source domain samples as training samples, and the remaining target samples as testing samples. Free parameters are obtained by five-fold cross-validation over the training samples. to compare to OFE, we employ two baseline approaches that explicitly handles unlabeled instance correspondences. Among them, \cite{Farhadi:crossview} identifies maps between features of one domain and those of another, thereby allowing a classifier learned in one domain to be adapted by suitably re-organizing its weights, and \cite{Liu:crossview} learns a cross-view bag of ‘bilingual words’ representation in which each bilingual word represents the co-occurrence of one visual word in one domain with another visual word in another.
+
+Statistics are given in Table \ref{mhad}. It turns out OFE generally outperforms others except in Group 2, where \cite{Liu:crossview} yields better accuracy. In the mean time, note that both  \cite{Farhadi:crossview} and \cite{Liu:crossview} require a certain amount of instance correspondences to run, and therefore fail when these pairs do not exist. OFE, on the other side, still works in these completely unsupervised conditions. All three competitors demonstrate the capability of knowledge transfer across domains no matter whether the domain shifts are attributed to viewpoint changes, sensor modalities, or a mixture of these changes. However, it is interesting that in Group 4, when both viewpoint change and sensor type change contribute to domain change, accuracies of  \cite{Farhadi:crossview} and \cite{Liu:crossview} do not significantly improve when more instance correspondence pairs become available.
+
+ \begin{table*}[ht]
+\centering \caption{Action recognition accuracy (\%) in a domain adaptation setting on the MHAD dataset using the HOGHOF feature. Each row is a baseline approach and each column a group of source-target combinations. The three accuracy numbers in a triple are the average recognition accuracy when 0\%, 5\% and 20\% of the sample pairs are used for unlabeled instance correspondences, respectively. }
+{\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline                                             & Group 1                & Group 2                  & Group 3  & Group 4\\
+\hline \cite{Farhadi:crossview} & NA/46.3/53.9       & NA/39.3/51.9          & NA/52.5/55.7       & NA/ 35.9/30.3   \\
+\hline \cite{Liu:crossview}         & NA/52.8/61.6       & NA/55.8/64.7          & NA/55.3/62.2        & NA/ 41.1/40.3  \\
+\hline OFE                                   & 38.1/57.3/70.7       & 41.7/49.0/62.7       & 34.8/54.9/67.7      & 25.5/43.9/47.8 \\
+\hline
+
+\end{tabular}
+}
+\label{mhad}
+\end{table*}
+
+
+\subsection{Cross-Domain Sentiment Classification}
+
+
+We now evaluate our approach with other unsupervised domain approaches that have been proposed for natural language processing tasks. We used the dataset of \cite{Blitzer07Learning} that performs adaptation for sentiment classification. The dataset has product reviews from amazon.com for four different domains: books, DVD, electronics and kitchen appliances. Each review has a rating from 0 to 5 and review text, among others. Reviews with rating more than 3 were classified as positive, and those less than 3 were classified negative. The goal here is to see whether the process of learning positive/ negative reviews from one domain, is applicable to another domain. We followed the experimental setup of \cite{Blitzer07Learning}, where the data representation for $\mathbf{x}$ and $\mathbf{\tilde{x}}$ are unigram and bigram features extracted from the reviews.  Each domain had 1000 positive and 1000 negative examples.
+
+We are primarily interested in a multiple-source adaptation scenario: we fix one of the four domains as the target domain, and use all the other three domains as source domains. For comparison, we use multiple-source extensions of some of the baselines used in Section \ref{objrec}: SUT, AUG, GFS, and MIX. The multiple-source extension of SUT simply combines all training samples for all domains. The multiple-source extension of AUG constructs the augmented cross-domain features by concatenating all original features from all source domains. The multiple-source extension of GFS trains a classifier for each source-target pair and makes decisions over the outputs of these classifiers (This is the same strategy of OFE). The multiple-source extension of MIX linearly combines all classifiers, each trained on a single domain. In addition to these extensions, we involve two more baselines that are specifically designed for multiple source domains. \cite{Hoffman_ECCV2012} uses a mixture of metrics, each of which is derived from a single source-target pair according to \cite{Kulis2011}, and we use the same notation MetL to refer to this baseline. \cite{duan2009domain} extends the adaptive SVM \cite{Yang:2007} to its multiple-source version, adding regularizations on prediction consistency and sparsity. We denote this baseline as DAM.
+
+Results on this cross-domain sentiment classification experiments are shown in Table \ref{senti}. Note that in this multiple-source adaptation scenario, OFE demonstrates competitive capability over others in both unsupervised and semi-supervised settings, and in particular, outstanding performance when labels are available in the target domains: Except for the case when Electronics serves as the target domain, OFE retains the top position among all when 20\% of the target samples are used as labeled. The overall results on images, videos/sequences, and natural language documents suggest that OFE is a generic strong tool for domain adaptation across multiple data types.
+
+ \begin{table*}[ht]
+\centering \caption{Sentiment classification accuracy (\%) in a multiple-source domain adaptation setting. Each row is a baseline approach and each column a target domain. The three accuracy numbers in a triple are the average recognition accuracy when 0\%, 5\% and 20\% of the target domain samples are used for labeled training samples, respectively. }
+{\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline      & Book & DVD & Electronics & Kitchen \\
+\hline SUT &  60.5/61.2/62.5    & 52.6/53.7/57.4        & 52.4/54.0/56.0  & 56.3/59.9/61.8\\ 
+\hline AUG &   NA/58.1/63.3       &   NA/56.7/58.1    &  NA/56.5/64.2 & NA/58.8/68.9 \\
+\hline GFS &   68.9/70.3/74.7       & 72.0/73.2/77.5          &  66.7/69.4/77.9   & 75.6/77.6/78.1\\
+\hline MIX & NA/58.6/65.2      & NA/57.8/63.0         & NA/61.5/68.2   & NA/59.7/60.5 \\
+\hline MetL & NA/55.3/70.0      & NA/56.2/69.0        & NA/55.8/67.8   & NA/57.1/72.3 \\
+\hline DAM & 66.8/73.5/74.0  & 68.3/70.7/74.2    & 70.0/73.8/75.8  & 67.9/72.0/74.0 \\
+\hline OFE & 66.1/73.7/80.0  & 73.1/77.5/82.3    & 66.8/69.8/76.4 &  77.1/80.3/85.9 \\
+\hline
+\end{tabular}
+}
+\label{senti}
+\end{table*}
+
+\section{conclusion}
+
+
+{
+\bibliographystyle{ieee}
+\bibliography{egbib}
+}
+
+
+
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{Li.eps}}]{Ruonan Li} received the B.E. and M.E. degrees from Tsinghua University, Beijing, China. He received the Ph.D. degree in electrical engineering from the University of Maryland, College Park in 2011.  His research interests include general problems in computer vision, image processing, pattern recognition, and machine learning, with recent focuses on video analysis and video based recognition, socialized visual analytics, cross-domain model adaptation, and the application of differential geometric methods to the related problems. \end{IEEEbiography}
+
+
+\end{document}
+
+
+
+
+
